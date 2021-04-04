@@ -1,0 +1,11 @@
+<html>
+  <p>redirecting...</p>
+  <script>
+  let accessFrom = window.location.search.replace('?', '').split('=')[1] // とりあえず一つしかクエリパラメータこない想定
+  window.alert(`accessFrom: ${accessFrom}`)
+  if (!document.cookie.match(accessFrom)) {
+    document.cookie = `${accessFrom}=didAccess`
+    window.alert('no cookie found. setting new cookie!')
+  }
+  </script>
+</html>
