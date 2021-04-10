@@ -1,7 +1,7 @@
 // todo: ここに単体テストを書いてみましょう！
 
-import { sumOfArray, asyncSumOfArray, asyncSumOfArraySometimesZero, getFirstNameThrowIfLong} from "./../functions";
-import { DatabaseMock } from "./../util";
+import { sumOfArray, asyncSumOfArray, asyncSumOfArraySometimesZero, getFirstNameThrowIfLong} from "../functions";
+import { DatabaseMock } from "../util";
 
 
 describe("sumOfArray", (): void => {
