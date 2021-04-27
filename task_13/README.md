@@ -4,6 +4,18 @@
 
 - E2EテストをCypressで実装する
 
+### Cypressのinstall
+
+1. Packageをinstall
+```
+yarn add cypress
+```
+
+2. Cypressの実行
+```
+yarn run cypress open
+```
+
 ### 片方のプレイヤーがゲームに勝利した状態を再現するE2Eテスト
 - 勝利メッセージ表示されることを確認する
 - マスを選択する際、Squareコンポーネントに「data-e2e」などのカスタム属性を追加する必要がある
