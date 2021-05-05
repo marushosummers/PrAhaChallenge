@@ -1,0 +1,14 @@
+
+version: '3'
+services:
+  node:
+    build: .
+    ports:
+      - "3000:3000"
+      - "5000:5000"
+      - "6006:6006"
+    tty: true
+    platform: linux/x86_64
+    stdin_open: true
+    volumes:
+      - "./my-app:/usr/src/my-app"
