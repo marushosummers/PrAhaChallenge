@@ -2,7 +2,7 @@ const getNumbers = require("./get-numbers");
 
 describe("引数のチェック", () => {
 	test("引数の文字列を数値に変換", () => {
-		expect(["1"]).toEqual([1]);
+		expect(getNumbers(["1"])).toEqual([1]);
 	});
 	test("引数が数字以外だとエラー", () => {
 		expect(() => {
