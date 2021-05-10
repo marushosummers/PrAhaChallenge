@@ -11,7 +11,3 @@ services:
     stdin_open: true
     volumes:
       - "./:/usr/src/app"
-      - "reserved:/usr/src/app/node_modules"
-
-volumes:
-  reserved:
