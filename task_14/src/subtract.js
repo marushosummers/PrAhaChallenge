@@ -1,6 +1,6 @@
 const subtract = (nums) => {
-  const sub = nums.reduce((accumulator, current) => accumulator - current);
-	return sub > 0 ? sub : "negative number";
+  const result = nums.reduce((accumulator, current) => accumulator - current);
+	return result > 0 ? result : "negative number";
 };
 
 module.exports = subtract;
