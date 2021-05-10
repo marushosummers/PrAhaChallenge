@@ -1,6 +1,6 @@
 const getOperator = require("./get-operator");
 
-describe("演算子が想定通りか検証", () => {
+describe("演算子のチェック", () => {
   test("演算子がadd", () => {
     expect(getOperator(["add"])).toEqual("add");
   });
