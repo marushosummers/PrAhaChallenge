@@ -12,13 +12,13 @@ describe("引数のチェック", () => {
 	test("引数の数が30以下は動作", () => {
 		expect(getNumbers(Array(30).fill("1"))).toEqual(Array(30).fill(1));
 	});
-  test("引数の数が31以上だった場合にエラー", () => {
-    expect(() => {
+	test("引数の数が31以上だった場合にエラー", () => {
+		expect(() => {
 			getNumbers(Array(31).fill("1"));
 		}).toThrowError();
 	});
 	test("引数が存在しない場合エラー", () => {
-    expect(() => {
+		expect(() => {
 			getNumbers([]);
 		}).toThrowError();
 	});
