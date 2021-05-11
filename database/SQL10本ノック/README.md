@@ -6,9 +6,6 @@
 - [WebSQLは現在は仕様策定が停止している](https://www.w3.org/TR/webdatabase/#status-of-this-document)
 - SQLの練習には[SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial/ja)のTutorialをやると良い
 
-以下のデータを取得するクエリを作成してください
-期待する出力結果は、こちらのレポジトリを参照してください
-
 ### 常連顧客の特定
 - 1996年に3回以上注文した（Ordersが3つ以上紐づいている）CustomerのIDと、注文回数
 ```sql
@@ -98,7 +95,7 @@ SELECT Employees.EmployeeID,  Orders.OrderID, Orders.OrderDate AS LatestOrderDat
 FROM Orders
   JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 GROUP BY Employees.EmployeeID
-HAVING MAX(Orders.OrderDate)
+HAVING MAX(Orders.OrderDate);
 ```
 
 
