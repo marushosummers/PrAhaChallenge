@@ -154,20 +154,55 @@ WHERE Employees.EmployeeID IS NULL
 
 ## 課題２（質問）
 
-- 「WHERE」と「HAVING」の違い
-- SQLの用語
-  - `DDL`
-  - `DML`
-  - `DCL`
-  - `TCL`
+### 「WHERE」と「HAVING」の違い
+  - WHERE句: SELECTしたテーブルのデータに抽出条件を指定する
+  - HAVING句: GROUP BYでグルーピングしたデータに抽出条件を指定する
+#### 参考
+- [[SQL] Where句とHaving句の違い](https://dev.classmethod.jp/articles/difference-where-and-having/)
+
+### SQLの用語
+  - `DDL`: Data Definition Language
+    - テーブル定義の作成・更新・削除を行う
+    - 例: CREATE、ALTER、DROP、TRUNCATE
+  - `DML`: Data Manipulation Language
+    - データの抽出・追加・更新・削除を行う
+    - 例: SELECT、INSERT、UPDATE、DELETE
+  - `DCL`: Data Control Language
+    - データベースの権限設定を行う
+    - 例: GRANT、REVOKE
+  - `TCL`: Transaction Control Language
+    - トランザクションに関する操作を行う
+    - 例: BEGIN, COMMIT、ROLLBACK、SET TRANSACTION、SAVEPOINT
+
 
 ## 課題３（クイズ）
 
-1. 
+1. SELECT文において、以下の句を評価される順番に並べてください
+   1. ORDER BY
+   2. LIMIT
+   3. GROUP BY
+   4. HAVING
+2. 各Productsの販売数(Quantityの合計)を調べるクエリを作成し、一番販売数の多いProductIDを調べてください
+3. 各Ordersの売上(Price * Quantityの合計)を調べるクエリを作成し、一番売上の多いOrderIDを調べてください
 <details>
   <summary>回答例</summary>
 
-1. 
+1. GROUP BY, HAVING, ORDER BY, LIMIT
+2. ProductID: 31
+    ```sql
+    SELECT ProductID, SUM(Quantity) AS SalesNumbers
+    FROM OrderDetails
+    GROUP BY ProductID
+    ORDER BY SalesNumbers DESC;
+    ```
+3. OrderID: 10372
+    ```sql
+    SELECT OrderID, ROUND(SUM(Products.Price * OrderDetails.Quantity), 0) AS Sales
+    FROM OrderDetails
+      JOIN Products ON OrderDetails.ProductID = Products.ProductID
+    GROUP BY OrderID
+    ORDER BY Sales DESC;
+    ```
 
 
 </details>
