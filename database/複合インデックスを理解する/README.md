@@ -17,10 +17,110 @@
 
 ## 課題２（実装）
 
+### 起動方法
+```bash
+> docker run -d \
+  --platform linux/x86_64 \
+  --name mysql-employees \
+  -p 3306:3306 \
+  -e MYSQL_ROOT_PASSWORD=college \
+  -v $PWD/data:/var/lib/mysql \
+  genschsa/mysql-employees
 
+// すでにコンテナが存在している場合
+> docker container start mysql-employees
+
+> docker exec -it mysql-employees /bin/bash
+
+> mysql -pcollege
+```
+
+### Where句を複数条件利用するクエリ
+
+1. employeesから`Tsukuda Sachin`の従業員Noを検索する
+```sql
+SELECT emp_no FROM employees WHERE first_name = 'Sachin' and last_name = 'Tsukuda';
+```
+
+1. titlesから現在`Technique Leader`の従業員Noを検索する
+```sql
+SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%';
+```
+
+3. salariesから現在`salary = 50000`の従業員Noを検索する
+```sql
+SELECT emp_no FROM salaries WHERE salary = 50000 and to_date LIKE '9999%';
+```
+
+### performance_schemaで実行速度を測定
+
+- 実行速度の確認クエリ
+```SQL
+SELECT sql_text, sys.format_time(timer_wait) AS time FROM performance_schema.events_statements_history WHERE sql_text IS NOT NULL;
+```
+
+```
++------------------------------------------------------------------------------------+-----------+
+| sql_text                                                                           | time      |
++------------------------------------------------------------------------------------+-----------+
+| SELECT emp_no FROM employees WHERE first_name = 'Sachin' and last_name = 'Tsukuda'  | 71.20 ms  |
+| SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%'| 106.18 ms |
+| SELECT emp_no FROM salaries WHERE salary = 50000 and to_date LIKE '9999%'          | 627.69 ms |
++------------------------------------------------------------------------------------+-----------+
+```
+
+## インデックスを追加
+
+```sql
+CREATE INDEX name_index ON employees(first_name, last_name);
+CREATE INDEX title_index ON titles(title, to_date);
+CREATE INDEX salary_index ON salaries(salary, to_date);
+```
+
+## 実行速度を測定
+
+1. employeesから`Tsukuda Sachin`の従業員Noを検索する: 71.20ms -> 287.68us
+2. titlesから現在`Technique Leader`の従業員Noを検索する: 106.18ms -> 6.04ms
+3. salariesから現在`salary = 50000`の従業員Noを検索する: 627.69ms -> 287.73us
+
+
+```
++-------------------------------------------------------------------------------------+-----------+
+| sql_text                                                                            | time      |
++-------------------------------------------------------------------------------------+-----------+
+| SELECT emp_no FROM employees WHERE first_name = 'Sachin' and last_name = 'Tsukuda'   | 287.68 us |
+| SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%' | 6.04 ms   |
+| SELECT emp_no FROM salaries WHERE salary = 50000 and to_date LIKE '9999%'           | 287.73 us |
++-------------------------------------------------------------------------------------+-----------+
+```
+
+## インデックスが使われているか確認
+
+```sql
+mysql> EXPLAIN SELECT emp_no FROM employees WHERE first_name = 'Sachin' and last_name = 'Tsukuda';
++----+-------------+-----------+------------+------+---------------+------------+---------+-------------+------+----------+-------------+
+| id | select_type | table     | partitions | type | possible_keys | key        | key_len | ref         | rows | filtered | Extra       |
++----+-------------+-----------+------------+------+---------------+------------+---------+-------------+------+----------+-------------+
+|  1 | SIMPLE      | employees | NULL       | ref  | name_index    | name_index | 34      | const,const |    2 |   100.00 | Using index |
++----+-------------+-----------+------------+------+---------------+------------+---------+-------------+------+----------+-------------+
+
+mysql> EXPLAIN SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%';
++----+-------------+--------+------------+------+---------------+-------------+---------+-------+------+----------+--------------------------+
+| id | select_type | table  | partitions | type | possible_keys | key         | key_len | ref   | rows | filtered | Extra                    |
++----+-------------+--------+------------+------+---------------+-------------+---------+-------+------+----------+--------------------------+
+|  1 | SIMPLE      | titles | NULL       | ref  | title_index   | title_index | 52      | const |    1 |   100.00 | Using where; Using index |
++----+-------------+--------+------------+------+---------------+-------------+---------+-------+------+----------+--------------------------+
+
+mysql> EXPLAIN SELECT emp_no FROM salaries WHERE salary = 50000 and to_date LIKE '9999%';
++----+-------------+----------+------------+------+---------------+--------------+---------+-------+------+----------+--------------------------+
+| id | select_type | table    | partitions | type | possible_keys | key          | key_len | ref   | rows | filtered | Extra                    |
++----+-------------+----------+------------+------+---------------+--------------+---------+-------+------+----------+--------------------------+
+|  1 | SIMPLE      | salaries | NULL       | ref  | salary_index  | salary_index | 4       | const |   69 |   100.00 | Using where; Using index |
++----+-------------+----------+------------+------+---------------+--------------+---------+-------+------+----------+--------------------------+
+```
 ## 課題3（クイズ）
 
-1. 
+
 
 <details>
   <summary>回答例</summary>
