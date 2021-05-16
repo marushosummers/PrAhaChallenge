@@ -42,7 +42,7 @@
 SELECT emp_no FROM employees WHERE first_name = 'Sachin' and last_name = 'Tsukuda';
 ```
 
-1. titlesから現在`Technique Leader`の従業員Noを検索する
+2. titlesから現在`Technique Leader`の従業員Noを検索する
 ```sql
 SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%';
 ```
@@ -80,8 +80,8 @@ CREATE INDEX salary_index ON salaries(salary, to_date);
 ## 実行速度を測定
 
 1. employeesから`Tsukuda Sachin`の従業員Noを検索する: 71.20ms -> 287.68us
-2. titlesから現在`Technique Leader`の従業員Noを検索する: 106.18ms -> 6.04ms
-3. salariesから現在`salary = 50000`の従業員Noを検索する: 627.69ms -> 287.73us
+2. titlesから現在の肩書きが`Technique Leader`の従業員Noを検索する: 106.18ms -> 6.04ms
+3. salariesから現在の給与が`salary = 50000`の従業員Noを検索する: 627.69ms -> 287.73us
 
 
 ```
@@ -120,10 +120,25 @@ mysql> EXPLAIN SELECT emp_no FROM salaries WHERE salary = 50000 and to_date LIKE
 ```
 ## 課題3（クイズ）
 
-
+1. employeesから`Schnabel Chenxi`の従業員Noを検索する
+2. titlesから現在の肩書きが`Staff`の従業員Noを検索する
+3. salariesから現在の給与が`salary = 100000`の従業員Noを検索する
 
 <details>
   <summary>回答例</summary>
 
+1. 
+```sql
+SELECT emp_no FROM employees WHERE first_name = 'Chenxi' and last_name = 'Schnabel';
+```
 
+2. 
+```sql
+SELECT emp_no FROM titles WHERE title = 'Staff' and to_date LIKE '9999%';
+```
+
+3. 
+```sql
+SELECT emp_no FROM salaries WHERE salary = 100000 and to_date LIKE '9999%';
+```
 </details>
