@@ -31,7 +31,7 @@
 - NULL OR TRUE :TRUE
 
 `SELECT COUNT(*) FROM employees WHERE NULL OR TRUE;`
-=> 0件
+=> *全件取得*
 
 ## 課題２
 
