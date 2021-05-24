@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  # MySQL
+  db:
+    image: genschsa/mysql-employees
+    container_name: mysql-employees
+    environment:
+      MYSQL_ROOT_PASSWORD: college
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ./config/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+    - 3306:3306
