@@ -1,5 +1,5 @@
 const divide = (nums) => {
-  if (nums.some((num) => num == 0))
+  if (nums.some((num) => num === 0))
     throw "ZeroDivisionError: division by zero";
 
   const result = nums.reduce((accumulator, current) => accumulator / current);
