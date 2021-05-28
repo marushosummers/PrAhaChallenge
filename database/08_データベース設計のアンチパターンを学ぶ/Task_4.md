@@ -32,7 +32,6 @@ FOREIGN KEY (parent_message_id) REFERENCES Message(id)
 Plant UML(Web版)を使ってUML図を作成する
 https://plantuml.com/ja/server
 
-### MangaとNovelをBookテーブルに集約する
 ![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLJmJIqkJanFBLQevb9Gq5B8J05IkhfWTabgHGbNBHUQolYIejHKBAeB4ek02kE1GY1USaPcJWgG0zBF1RUZfaPFBxyQnIGkXzIy5A1x0000)
 
 ```plantuml
