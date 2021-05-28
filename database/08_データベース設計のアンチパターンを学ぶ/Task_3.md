@@ -82,7 +82,7 @@ Books ||..o{ Comments
 ```
 
 ### MangaとNovelをBookテーブルに集約できない場合
-![svg](http://www.plantuml.com/plantuml/uml/SoWkIImgAStDuKhDAyaigLJmJSnBJrIevb9Gq5B8J05IkhfWTbvYRYfNBHUAilZa_DnSe40n5lMvO0L04H07gWx4HHZXbr-MceFN9eGoV3RbWHJWjSaPj-Qar9pylFJY-99yc0abgHKb8BrSa92egT7Jowz6yoyNs55GEJGNSi5imzIAAOsfso4rBmKK7G00)
+![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLJmJSnBJrIevb9Gq5B8J05IkhfWTbvYRYfNBHUAilZa_DnSe40n5lMvO0L04H07gWx4HHZXbr-MceFN9eGoV3RbWHJWjSaPj-Qar9pylFJY-99yc0abgHKb8BrSa92egT7Jowz6yoyNs55GEJGNSi5imzIAAOsfso4rBmKK7G00)
 
 ```plantuml
 @startuml
