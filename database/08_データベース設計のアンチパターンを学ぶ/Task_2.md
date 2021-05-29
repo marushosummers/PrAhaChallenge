@@ -46,7 +46,7 @@ Plant UML(Web版)を使ってUML図を作成する
 https://plantuml.com/ja/server
 
 
-![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLG8o2ykALQevb9Gq5B8J05IkhfWTd9-NWbG2LSj5xBA-9B4T6og2q1oG04G6wW4n4He34bC9s03n14rDNfw-TK8UxX06Z557LBpKa0U0000)
+![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLG8o2ykALQevb9Gq5B8J05IkhfWTd9-NWbG2LSj5xBA-9B4T6og2q1oG04G6wW4n4He34bC9s03s150yVngX2rSG6qOOWwfUIb0nmC0)
 
 ```plantuml
 @startuml
@@ -69,8 +69,8 @@ entity Tags {
   * content
 }
 
-Posts ||..o{ Post_tags
-Tags ||..o{ Post_tags
+Posts --o{ Post_tags
+Tags --o{ Post_tags
 @enduml
 ```
 

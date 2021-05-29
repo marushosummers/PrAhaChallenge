@@ -32,7 +32,7 @@ FOREIGN KEY (parent_message_id) REFERENCES Message(id)
 Plant UML(Web版)を使ってUML図を作成する
 https://plantuml.com/ja/server
 
-![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLJmJIqkJanFBLQevb9Gq5B8J05IkhfWTabgHGbNBHUQolYIejHKBAeB4ek02kE1GY1USaPcJWgG0zBF1RUZfaPFBxyQnIGkXzIy5A1x0000)
+![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLJmJIqkJanFBLQevb9Gq5B8J05IkhfWTabgHGbNBHUQolYIejHKBAeB4ek02kE1GY1USaPcJWgG0zBF1RC3g3I_6iKSBeVKl1IWQm00)
 
 ```plantuml
 @startuml
@@ -50,7 +50,7 @@ entity Message_tree {
 }
 
 
-Messages ||..o{ Message_tree
+Messages --o{ Message_tree
 @enduml
 ```
 

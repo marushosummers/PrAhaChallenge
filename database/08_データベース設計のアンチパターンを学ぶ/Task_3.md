@@ -58,7 +58,7 @@ Plant UML(Web版)を使ってUML図を作成する
 https://plantuml.com/ja/server
 
 ### MangaとNovelをBookテーブルに集約する
-![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLHmoi_FBbQevb9Gq5B8J05IkhfWTbvYRYgOaGHK45zIMP3ALSi5q-ISdviBPABfGoW72e3O9QaL9I1TN11BQchqzFAhuPgv75BpKe0k0G00)
+![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLHmoi_FBbQevb9Gq5B8J05IkhfWTbvYRYgOaGHK45zIMP3ALSi5q-ISdviBPABfGoW72e3O9QaL9I1TN61BW2hog-5QkHnIyrA0xW00)
 
 ```plantuml
 @startuml
@@ -77,12 +77,12 @@ entity Comments {
 }
 
 
-Books ||..o{ Comments
+Books --o{ Comments
 @enduml
 ```
 
 ### MangaとNovelをBookテーブルに集約できない場合
-![svg](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhDAyaigLJmJSnBJrIevb9Gq5B8J05IkhfWTbvYRYfNBHUAilZa_DnSe40n5lMvO0L04H07gWx4HHZXbr-MceFN9eGoV3RbWHJWjSaPj-Qar9pylFJY-99yc0abgHKb8BrSa92egT7Jowz6yoyNs55GEJGNSi5imzIAAOsfso4rBmKK7G00)
+![svg](http://www.plantuml.com/plantuml/svg/XOzH2i8m38RVSuey3tQ7WSzwXL5T68Cc1Pk9ChoxMR28LUTJc_pVdp_fieQppXo1H2UzuJx86701n0QdmPwszRy49hZ36zQV4hCryXUU7V1EWqzkBLyZ3kb2yN-IOrj9ui1Mqkwt-KWnoPXxJMM2qbLNB_Y9ngMbkXPy9LUgxQ0acVZXAff9jQqZ6MQE3m00)
 
 ```plantuml
 @startuml
@@ -120,9 +120,9 @@ entity Comments {
 }
 
 
-Manga ||..o{ Manga_comments
-Novel ||..o{ Novel_comments
-Comments ||..o{ Manga_comments
-Comments ||..o{ Novel_comments
+Manga --o{ Manga_comments
+Novel --o{ Novel_comments
+Comments --{ Manga_comments
+Comments--{ Novel_comments
 @enduml
 ```
