@@ -64,12 +64,14 @@ menu --o{ orderDetail
 
 
 シャリの大きさを`orderDetail`に`shari_size`として持つ
+
 ![svg](http://www.plantuml.com/plantuml/svg/XP31Ji0W38RlF0Ld4zvX1_NYnRinf1jDrWXbGZdCnNVNeZFRel6o_MtvlxymL84YBKLpnqAoseJSx6QilQ5WdnuVdZ-bSrep9DJ_KcZgWgglADyAGOXzvhYQTxF3fbOb9op_0EVCwBcb4Sl1d4luoxbplGxkTT1tM822okx4u46kk5iKeFWhL5rdeZx59Q72IDnUICiwGo5VwGsrUctGSpJnvzhEvUqhsEXN6zjn4QCHUkhS7P13I_43)
 
 - 値段が変わる場合
 
 
 シャリの大きさを`orderDetail`に`shari_size`として持ち、販売価格も`selling_price`として持つ
+
 ![svg](http://www.plantuml.com/plantuml/svg/XL2zJiGm3Dxp59bFkdUu0LXOs16AV8r5BHAdnCvGAjwTEb1KAX1Byldd-v4leb2rvUHkMKbddv6RNvpt9uh-yU7-QONdizKC6UsVAWqTa0H1_K88IXmAfzczkqriQA8bO_r7S2oCWLk-OjsHIur_CJVTO8Cx6_GC4r0qs9aO0-XHxWOLAFqksXVsYdQAWuF0bRYza9KoGgKWz8Rk99WIyNFulirhWsvh0RQqgqzPFdCuUwsnx7CvSxIjdzqBScmvVG00)
 
 ### 人気の寿司ネタを特定したいので、セット商品の売り上げとは別に、寿司ネタが毎月何個売れているのか知る必要が生じた
