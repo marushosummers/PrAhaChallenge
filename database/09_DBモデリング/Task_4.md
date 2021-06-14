@@ -26,7 +26,7 @@ Plant UML(Web版)を使ってUML図を作成する
 https://plantuml.com/ja/server
 
 
-![svg](http://www.plantuml.com/plantuml/svg/TKyn2iCm3Dpz2i-5_25BfoxTIp5ghC5WEy6IsuRGlpTgAWYOJBhJdSw-dXWArnJDENFWsLR2OXTZxIbuUxjUxYliEk4P4ih4124Ac83eDHR_CvE3WSCJpSTeLC4KiZ-AOtopp64U8Wg8GEos6mURL10ObTN9AzjfZrcrZJNlk-D6-a4Nl50n2jGwvLz7zkl5kEmJc-swKj2QUyo-flW5)
+![svg](http://www.plantuml.com/plantuml/svg/TKyz2yCW4Dtz5Su5_qENJbswbo9MRpXG4_JI9eJ-zwgzGAXaklVnVFWkaP0MEML8SXLIdj39--twA52fogC9K2y4Wxw2qUJy7f9huQoD9No1-0Z1LGa2HdTKHp1JlNQn7bf_4VJlZJRDyeOW_samZvY0YKrG8firZOxPtdikx37hFgYF9syBDBfMaXdotiHxMu5ImxflxDGYRQ0Fdo6wAVWl)
 
 ```plantuml
 @startuml
@@ -44,7 +44,9 @@ Entity reminder {
   --
   *text
   *cycle
-  *last_remind_at
+  *next_remind_at
+  *latest_remind_at
+  *expire_at
   *created_at
   *updated_at
   *created_by
