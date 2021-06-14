@@ -29,7 +29,7 @@ https://plantuml.com/ja/server
 - 参考: [階層構造(a.k.a ツリー構造・ディレクトリ構造・フォルダ)をDBでどう設計すべきか](https://teitei-tk.hatenablog.com/entry/2020/11/30/130000)
 
 
-![svg](http://www.plantuml.com/plantuml/svg/fP112y8m38Nl_HKz2_qFktZoubran2PWO6r7cwfZ-DyrWuuXktdA-n9uhwzT4SXIms2EKLWcMmjbEnjh3upsSZvTlz8vvGY1T5807bICKCepPLJDfGSl_23pDiqAaw-1ekpR8MVoalBKCoeBlKIdpmH2sCD2TSGDjTjjsjoKDg7DTZzr1BctCl-acUMVd4lpMdDljRxcPzzHn1g63m00)
+![svg](http://www.plantuml.com/plantuml/svg/fP312i8m38RlVOgUXRx3BfwyU1SPiGbOMDlHfkeOlhjcq3cauC5J_Yzf_xzfbnaI5p-eVM37aowPafwLrZk7-dGydD_I6E40dgII1pU8627dUqou7CuzM7OtKazLhJ3QuYbmsmvT8iinJRr3OQO7IxM9W0bxMAYCM6apkqoVcT0sjDgsKqVWQrtcdxJbcuo9yxhbZrPzLhEtgg_x7GKiVdW1)
 
 ```plantuml
 @startuml
@@ -66,6 +66,8 @@ Entity directory {
 
 user --o{ document
 user --o{ document
+user --o{ directory
+user --o{ directory
 directory --o{ document
 @enduml
 ```
