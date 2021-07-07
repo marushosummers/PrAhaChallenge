@@ -81,7 +81,40 @@ Classは拡張に対して開かれていなければならないが、変更に
 
 クラスの変更によって、他でそのクラスを使っている箇所でのバグを産まないことを目的としています。
 
+例えば、価格の値下げを行う`Discount`クラスがある場合。
 
+```javascript
+class Discount {
+    giveDiscount() {
+        return this.price * 0.2
+    }
+}
+```
+
+得意先に対しては倍の値引き率を適用したい場合に、以下のように変更を加えると、この原則に違反します。
+
+```javascript
+class Discount {
+    giveDiscount() {
+        if(this.customer == 'fav') {
+            return this.price * 0.2;
+        }
+        if(this.customer == 'vip') {
+            return this.price * 0.4;
+        }
+    }
+}
+```
+
+これを回避するために、継承したクラスを作ります。
+
+```javascript
+class VIPDiscount: Discount {
+    getDiscount() {
+        return super.getDiscount() * 2;
+    }
+}
+```
 
 ### ポリモーフィックとは
 
