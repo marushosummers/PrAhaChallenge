@@ -20,6 +20,11 @@
 ### データベースをMySQLからPostgreSQLに変更する場合
 
 
+#### 参考
+
+- [[DDD]ドメイン駆動 + オニオンアーキテクチャ概略](https://qiita.com/little_hand_s/items/2040fba15d90b93fc124)
+- [世界一わかりやすいClean Architecture](https://www.slideshare.net/AtsushiNakamura4/clean-architecture-release)
+
 ## 課題２（クイズ）
 
 1. hoge
