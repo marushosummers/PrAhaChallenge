@@ -37,26 +37,41 @@ SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '999
 ### ビューの作成
 
 ```sql
-CREATE VIEW view_technique_leasers AS SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%';
+CREATE VIEW view_technique_leaders AS SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%';
 ```
 
 - ビューから同様のデータを取得するクエリ
 ```sql
-SELECT emp_no FROM view_technique_leasers;
+SELECT emp_no FROM view_technique_leaders;
 
 > 12055 rows in set, 1 warning (0.14 sec)
 ```
 
 
+- 同様のデータをテーブルで定義
+
+```sql
+CREATE TABLE `technique_leaders` (
+  `emp_no` int(11) NOT NULL,
+  PRIMARY KEY (`emp_no`)
+);
+
+Insert INTO  technique_leaders (emp_no) SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%';
+```
+
+
 ### クエリパフォーマンスの変化
 
-- 大きな変化は無し。
+- Viewを使ったクエリは、パフォーマンスに大きな変化無し
+- テーブルにデータを入れた場合は137ms -> 3.5ms と速くなった
+
 ```
 +-------------------------------------------------------------------------------------+-----------+
 | sql_text                                                                            | time      |
 +-------------------------------------------------------------------------------------+-----------+
 | SELECT emp_no FROM titles WHERE title = 'Technique Leader' and to_date LIKE '9999%' | 137.42 ms |
-| SELECT emp_no FROM view_technique_leasers                                           | 138.74 ms |
+| SELECT emp_no FROM view_technique_leaders                                           | 138.74 ms |
+| SELECT emp_no FROM technique_leaders                                                | 3.49 ms   |
 +-------------------------------------------------------------------------------------+-----------+
 ```
 
@@ -64,3 +79,4 @@ SELECT emp_no FROM view_technique_leasers;
 ```sql
 SELECT sql_text, sys.format_time(timer_wait) AS time FROM performance_schema.events_statements_history WHERE sql_text IS NOT NULL;
 ```
+
