@@ -232,11 +232,13 @@ SELECT * FROM salaries WHERE salary = N;
 CREATE INDEX salary_index ON salaries(salary);
 ```
 
-- [質問候補] ワイルドカードを使った場合インデックスが使われていない？
+- ~~[質問候補] ワイルドカードを使った場合インデックスが使われていない？~~
 ```sql
 mysql> CREATE INDEX salary_index ON salaries(salary);
 Query OK, 0 rows affected (7.90 sec)
 Records: 0  Duplicates: 0  Warnings: 0
+
+- 結果
 
 mysql> SELECT * FROM salaries WHERE salary = 100000;
 +--------+--------+------------+------------+
@@ -259,64 +261,13 @@ mysql> SELECT * FROM salaries WHERE salary = 100000;
 13 rows in set (0.81 sec)
 
 mysql> EXPLAIN SELECT * FROM salaries WHERE salary = 100000;
-+----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+
-| id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
-+----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+
-|  1 | SIMPLE      | salaries | NULL       | ALL  | salary_index  | NULL | NULL    | NULL |    1 |   100.00 | Using where |
-+----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+
++----+-------------+----------+------------+------+---------------+---------------+---------+-------+------+----------+-------+
+| id | select_type | table    | partitions | type | possible_keys | key           | key_len | ref   | rows | filtered | Extra |
++----+-------------+----------+------------+------+---------------+---------------+---------+-------+------+----------+-------+
+|  1 | SIMPLE      | salaries | NULL       | ref  | salariy_index | salariy_index | 4       | const |   13 |   100.00 | NULL  |
++----+-------------+----------+------------+------+---------------+---------------+---------+-------+------+----------+-------+
 1 row in set, 1 warning (0.00 sec)
 
-mysql> SELECT emp_no FROM salaries WHERE salary = 100000;
-+--------+
-| emp_no |
-+--------+
-|  14321 |
-|  21546 |
-| 222235 |
-| 259902 |
-| 261168 |
-| 261550 |
-| 400917 |
-| 431717 |
-| 439061 |
-| 483067 |
-| 489082 |
-| 491679 |
-| 491713 |
-+--------+
-13 rows in set (0.00 sec)
-
-mysql> EXPLAIN SELECT emp_no FROM salaries WHERE salary = 100000;
-+----+-------------+----------+------------+------+---------------+--------------+---------+-------+------+----------+-------------+
-| id | select_type | table    | partitions | type | possible_keys | key          | key_len | ref   | rows | filtered | Extra       |
-+----+-------------+----------+------------+------+---------------+--------------+---------+-------+------+----------+-------------+
-|  1 | SIMPLE      | salaries | NULL       | ref  | salary_index  | salary_index | 4       | const |   13 |   100.00 | Using index |
-+----+-------------+----------+------------+------+---------------+--------------+---------+-------+------+----------+-------------+
-1 row in set, 1 warning (0.00 sec)
-```
-
-- 結果
-```sql
-mysql> SELECT emp_no FROM salaries WHERE salary = 100000;
-+--------+
-| emp_no |
-+--------+
-|  14321 |
-|  21546 |
-| 222235 |
-| 259902 |
-| 261168 |
-| 261550 |
-| 400917 |
-| 431717 |
-| 439061 |
-| 483067 |
-| 489082 |
-| 491679 |
-| 491713 |
-+--------+
-13 rows in set (0.00 sec)
-```
 
 - 実行時間が最も長いスロークエリを高速化
 ```sql
