@@ -41,6 +41,79 @@ molecule, atomを組み合わせて構成される。
 
 ラベルやボタンなどパーツ。
 
+- 参考: [Atomic Designを分かったつもりになる](https://design.dena.com/design/atomic-design-%E3%82%92%E5%88%86%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%A4%E3%82%82%E3%82%8A%E3%81%AB%E3%81%AA%E3%82%8B)
+
+
 ### 関数コンポーネントとクラスコンポーネントの違い
-#### function component（関数コンポーネント）
-#### class component（クラスコンポーネント）
+
+コンポーネントの定義方法には2種類がある。
+Reactの視点からはこの2つは等価だが、以下の観点から関数コンポーネントの利用が良い。
+
+- thisを使う必要がなくなる
+- メソッドをbindする必要がなくなる
+- constructor, renderが不要になる
+- ライフサイクルメソッドに分割する必要がないため同一ロジックが混入しにくい
+- コンポーネント間でステートフルロジックを共有することが容易
+
+参考:
+- [コンポーネントと props](https://ja.reactjs.org/docs/components-and-props.html)
+- [Reactでクラスコンポーネントより関数コンポーネントを使うべき理由5選](https://tyotto-good.com/blog/reaseons-to-use-function-component)
+- [【React】クラスコンポーネント /関数コンポーネントの違いと使い分け](https://qiita.com/shane/items/b936550820de9a88ad60)
+
+
+#### 例: class component（クラスコンポーネント）
+
+```javascript
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
+  componentDidMount() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+  componentDidUpdate() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+```
+
+`React.Component`を継承することで、状態管理やライフサイクルメソッドなどを持つことができる。
+#### 例: function component（関数コンポーネント）
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+```
+
+Hooksを使うことで、`useEffect`などの関数で状態管理やライフサイクルメソッドを持つことができる。
+
