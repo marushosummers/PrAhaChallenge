@@ -117,3 +117,10 @@ function Example() {
 
 Hooksを使うことで、`useEffect`などの関数で状態管理やライフサイクルメソッドを持つことができる。
 
+
+## 課題2
+
+以下のサイトをatomic designで実装する
+
+https://tailwindcomponents.com/component/blog-page/landing
+
