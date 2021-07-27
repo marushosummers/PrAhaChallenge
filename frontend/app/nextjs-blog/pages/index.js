@@ -1,4 +1,4 @@
-import Header from '../components/templates/header'
+import Header from '../components/organism/header'
 import "tailwindcss/tailwind.css";
 
 export default function Home() {
