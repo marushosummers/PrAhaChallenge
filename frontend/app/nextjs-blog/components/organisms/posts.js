@@ -1,7 +1,7 @@
 import Post from "../molecules/post"
 import Pagination from "../molecules/pagination";
 
-export default function Posts() {
+export default function Posts(props) {
   return (
 		<div className="w-full lg:w-8/12">
 			<div className="flex items-center justify-between">
@@ -13,7 +13,11 @@ export default function Posts() {
 					</select>
 				</div>
 			</div>
-			<Post />
+			<div>
+				{props.posts.map((post) => (
+					<Post post={post} />
+				))}
+			</div>
 			<Pagination />
 		</div>
 	);

@@ -12,11 +12,11 @@ export default function TemplateTop(props) {
 			<Header />
 			<div className="px-6 py-8">
 				<div className="container flex justify-between mx-auto">
-					<Posts />
+					<Posts posts={props.posts} />
 					<div className="hidden w-4/12 -mx-8 lg:block">
-						<Authors />
-						<Categories />
-						<RecentPosts />
+						<Authors authors={props.authors} />
+						<Categories categories={props.categories} />
+						<RecentPosts recent_posts={props.recent_posts}/>
 					</div>
 				</div>
 			</div>
