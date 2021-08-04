@@ -1,4 +1,4 @@
-import Tag from "../../atoms/tag";
+import CategoryTag from "../../atoms/category_tag";
 import Avatar from "../../atoms/avatar";
 import AuthorName from "../../atoms/author_name";
 
@@ -8,7 +8,7 @@ return (
 				<div className="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
 					<div className="flex items-center justify-between">
 						<span className="font-light text-gray-600">{props.post.date}</span>
-						<Tag href="#" name={props.post.tag} />
+						<CategoryTag href="#" name={props.post.category} />
 					</div>
 					<div className="mt-2">
 						<a

@@ -1,4 +1,4 @@
-export default function Tag(props){
+export default function CategoryTag(props){
 	return (
 		<a
 			href={props.href}

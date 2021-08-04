@@ -5,7 +5,7 @@ import "tailwindcss/tailwind.css";
 const dummyPosts = [
 	{
 		date: "Jun 1, 2020",
-		tag: "Lravel",
+		category: "Lravel",
 		title: "Build Your New Idea with Laravel Freamwork.",
 		text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eosenim reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!",
 		avatar:
@@ -14,7 +14,7 @@ const dummyPosts = [
 	},
 	{
 		date: "Feb 14, 2019",
-		tag: "Design",
+		category: "Design",
 		title: "Accessibility tools for designers and developers",
 		text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eosenim reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!",
 		avatar:
@@ -23,7 +23,7 @@ const dummyPosts = [
 	},
 	{
 		date: "Jun 1, 2020",
-		tag: "Lravel",
+		category: "Lravel",
 		title: "Build Your New Idea with Laravel Freamwork.",
 		text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eosenim reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!",
 		avatar:
@@ -32,7 +32,7 @@ const dummyPosts = [
 	},
 	{
 		date: "Feb 14, 2019",
-		tag: "Design",
+		category: "Design",
 		title: "Accessibility tools for designers and developers",
 		text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eosenim reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!",
 		avatar:
@@ -56,7 +56,16 @@ const dummyAuthors = [
 		post_count: 52,
 	},
 ];
-const dummyCategories = [{}]
+
+const dummyCategories = [
+	{ name: "AWS" },
+	{ name: "Laravel" },
+	{ name: "Vue" },
+	{ name: "Design" },
+	{ name: "Django" },
+	{ name: "PHP" },
+];
+
 const dummyRecentPosts = [{}]
 
 export default function Top() {
