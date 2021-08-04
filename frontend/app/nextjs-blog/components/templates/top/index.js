@@ -4,7 +4,6 @@ import Categories from "../../organisms/categories";
 import RecentPosts from "../../organisms/recent_posts";
 import Header from "../../organisms/header";
 import Footer from "../../organisms/footer";
-import "tailwindcss/tailwind.css";
 
 export default function TemplateTop(props) {
 	return (
