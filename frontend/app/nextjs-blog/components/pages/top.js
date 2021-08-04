@@ -66,8 +66,17 @@ const dummyCategories = [
 	{ name: "PHP" },
 ];
 
-const dummyRecentPosts = [{}]
+const dummyRecentPosts = [
+	{
+		date: "Jun 1, 2020",
+		category: "Lravel",
+		title: "Build Your New Idea with Laravel Freamwork.",
+		avatar:
+			"https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=731&q=80",
+		author_name: "Alex John",
+	},
+]
 
 export default function Top() {
-	return <TemplateTop posts={dummyPosts} authors={dummyAuthors} categories={dummyCategories} recent_posts={dummyRecentPosts}/>;
+	return <TemplateTop posts={dummyPosts} authors={dummyAuthors} categories={dummyCategories} recentPosts={dummyRecentPosts}/>;
 }

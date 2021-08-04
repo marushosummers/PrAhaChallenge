@@ -16,7 +16,7 @@ export default function TemplateTop(props) {
 					<div className="hidden w-4/12 -mx-8 lg:block">
 						<Authors authors={props.authors} />
 						<Categories categories={props.categories} />
-						<RecentPosts recent_posts={props.recent_posts}/>
+						<RecentPosts recentPosts={props.recentPosts}/>
 					</div>
 				</div>
 			</div>
