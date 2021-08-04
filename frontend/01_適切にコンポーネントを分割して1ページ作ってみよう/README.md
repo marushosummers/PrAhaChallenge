@@ -124,7 +124,7 @@ Hooksを使うことで、`useEffect`などの関数で状態管理やライフ�
 
 https://tailwindcomponents.com/component/blog-page/landing
 
-解答: [appディレクトリを参照](frontend/app/nextjs-blog)
+解答: appディレクトリを参照
 
 
 ### 参考
