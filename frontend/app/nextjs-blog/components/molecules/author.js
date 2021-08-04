@@ -1,5 +1,5 @@
-import Avatar from "../../atoms/avatar";
-import AuthorName from "../../atoms/author_name";
+import Avatar from "../atoms/avatar";
+import AuthorName from "../atoms/author_name";
 
 export default function Author(props) {
 	return (
