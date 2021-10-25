@@ -4,6 +4,10 @@
 
 ### 特定のコミットとの差分を表示したい
 
+- [git diff](https://git-scm.com/docs/git-diff)
+```
+git diff <コミット番号>
+```
 
 ### 差分があるファイル名だけを一覧表示したい
 
