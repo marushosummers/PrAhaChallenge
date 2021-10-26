@@ -1,12 +1,14 @@
 import CategoryTag from "../atoms/category_tag";
 import Avatar from "../atoms/avatar";
 import AuthorName from "../atoms/author_name";
+import Button from "../atoms/button";
 
 export default function RecentPost(props) {
 	return (
 		<div className="flex flex-col max-w-sm px-8 py-6 mx-auto bg-white rounded-lg shadow-md">
 			<div className="flex items-center justify-center">
 				<CategoryTag name={props.recentPost.category} />
+				<Button color="green" size="medium" disabled={true} onClick={() => {}} children="aaaa"/>
 			</div>
 			<div className="mt-4">
 				<a
