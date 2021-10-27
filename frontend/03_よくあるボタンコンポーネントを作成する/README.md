@@ -27,6 +27,12 @@ Storybookの作成
 - 「削除する」の文言が表示された赤色のsmallなボタン
 - 上記「削除する」ボタンの押下不可になったバージョン（disalbed = true）
 
+![スクリーンショット 2021-10-27 14 35 43](https://user-images.githubusercontent.com/32977282/139007029-88d55499-56ff-4662-9aad-baeba6f8ea1b.png)
+
+![スクリーンショット 2021-10-27 14 35 51](https://user-images.githubusercontent.com/32977282/139007055-c116775d-e769-4956-8844-94bd136c3f84.png)
+
+![スクリーンショット 2021-10-27 14 36 00](https://user-images.githubusercontent.com/32977282/139007059-060786c0-537e-482d-9b5c-5325aa59dd6f.png)
+
 
 ## 課題3
 
