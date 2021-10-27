@@ -8,7 +8,6 @@ export default function RecentPost(props) {
 		<div className="flex flex-col max-w-sm px-8 py-6 mx-auto bg-white rounded-lg shadow-md">
 			<div className="flex items-center justify-center">
 				<CategoryTag name={props.recentPost.category} />
-				<Button color="green" size="medium" disabled={true} onClick={() => {}} children="aaaa"/>
 			</div>
 			<div className="mt-4">
 				<a
