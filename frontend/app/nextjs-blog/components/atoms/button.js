@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Button = ({
   color,
   size,
@@ -30,3 +32,12 @@ const Button = ({
 }
 
 export default Button
+
+Button.propTypes = {
+  color: PropTypes.oneOf(['red', 'blue', 'green']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  children: PropTypes.string,
+};
+
