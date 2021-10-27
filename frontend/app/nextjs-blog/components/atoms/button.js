@@ -23,7 +23,7 @@ const Button = ({
 
   return (
   <button className = {
-    `disabled:opacity-50 bg-${color}-600 min-w-min ${height} text-white font-bold px-2 py-1 rounded text-center`
+    `disabled:bg-gray-300 bg-${color}-600 min-w-min ${height} text-white font-bold px-2 py-1 rounded text-center`
   } disabled={disabled} onClick={onClick}
   >
     {children}
