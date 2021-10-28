@@ -4,9 +4,16 @@
 
 ### Hooksのメリット
 
+- コンポーネント間でのロジック共有が容易になる
+- クラスコンポーネントを使わないためコード量が削減できる
+- props、stateの管理を減らせる
+
 ### 外部Hooksの例
 
+- [useClickAway](https://github.com/streamich/react-use/blob/master/docs/useClickAway.md)
+- モーダルの外をクリックしたらモーダルを閉じる、などが実装できそう
 
+参考: [react-use の実装から学ぶ custom hooks](https://zenn.dev/kobayang/articles/9145de86b20ba6)
 ## 課題2
 
 以下のTodoアプリのリファクタリング
