@@ -26,8 +26,38 @@ https://codepen.io/philmayfield/full/MwRgyN
 
 ### 「Container」と「Presentational」とは
 
+#### Presentational Component
 
+- 見た目に関する責任を負う。
+- 子要素として、Presentational Component、Container Component のどちらも持ちうる。
+- DOM マークアップやスタイルを持つ。
+- this.props.children を受け取る。
+- 自分のコンポーネント以外のことについて依存しない。（例：Flux アクションや Store など）
+- データを自身で勝手に読み込んだり、改変しない。
+- データやコールバックは、親から Props として受け取る。
+- State を持つことは少ない（持ったとしても、自身の UI に関する状態だけ）。
+- Functional Component として書かれる。Component State や Lifecycle Hook、パフォーマンス調整の必要がなければ。
+- 主な使用例：Page, Sidebar, Story, Userinfo, List
+
+#### Container Component
+- アプリケーションの動作に関する責任を負う。
+- 子要素として、Presentational Component、Container Component のどちらも持ちうる。
+- DOM マークアップやスタイルを持たない。
+- データ及びデータを扱うためのファンクションを Presentational Component に提供する。
+- Flux Action を発火する。また、発火するためのファンクションを子要素に提供する。
+- State を持つ。データソースとして機能する。
+- react-redux.connect()などの HOC を使って生成される。
+- 主な使用例：UserPage, FollowersSidebar, StoryContainer, FollowedUserList
+
+
+> 引用: [Presentational ComponentとContainer Component](https://www.yuuniworks.com/blog/2018-05-18-presentational-component%E3%81%A8container-component/) 
 ### メリット
+
+- アプリケーション部分と UI 部分を分離できる
+- 再利用性が高い
+- Container に重複したレイアウトを記載しなくなる。（Sidebar や Page といったレイアウトを Presentational Component として抽出することを強制される。Container から、レイアウトコンポーネントに対して children を渡してやるスタイル。）
+
+> 引用: [Presentational ComponentとContainer Component](https://www.yuuniworks.com/blog/2018-05-18-presentational-component%E3%81%A8container-component/) 
 
 ### リファクタリング
 
