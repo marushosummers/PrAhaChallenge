@@ -74,7 +74,7 @@ git clone --depth 1 <url>
 ```
 ### 他ブランチからのマージ中にコンフリクトが発生したため、ひとまずマージを中断したい
 
-- [git merge]](https://git-scm.com/docs/git-merge)
+- [git merge](https://git-scm.com/docs/git-merge)
 ```
 git merge --abort
 ```
