@@ -4,13 +4,76 @@
 
 代表的なブランチ戦略について
 
-### GitHub Flow
+### [GitHub Flow](https://guides.github.com/introduction/flow/)
 
-### Gitflow
-- develop
-- feature
-- release
-- hotfix
+![github flow](https://camo.qiitausercontent.com/e2484b951315de261f51024fb1b1630232e82bd9/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3630383737302f31363137663937322d313838382d376236312d663931322d3731343335353665343135372e6a706567)
+> 引用) [git flowとgithub flow　開発運用方法の違い](https://qiita.com/Yu-kiFujiwara/items/40b503683d6525c8d274)
 
+- GitFlow(後述)を簡略化したブランチ戦略
+- master/featureの2種類のみのシンプルな構成
+- 全ての開発ブランチをmasterブランチから切り、定期的にリモートにプッシュして共有する
+- マージ可能になったらmasterブランチへPRを出し、他の開発者からレビューを受ける
+- approve後にデプロイをし、最後のチェックを行う
+- すべての作業完了後にmasterブランチへマージ
+
+---
+
+### [Gitflow](https://danielkummer.github.io/git-flow-cheatsheet/index.ja_JP.html)
+![Gitflow](https://camo.qiitausercontent.com/a3c0747e71ea29ff909de3cf486ba4c5cc28e3fb/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3539393330342f35626161313834342d346164302d313338392d353734332d3862626363633165663833362e706e67)
+
+5種類のブランチを活用する
+
+#### master
+ - メインブランチ
+ - リリースしたコードを管理する
+ - リリース(バージョン)ごとにタグ付けされている
+
+#### develop
+  - masterから分岐する
+  - 開発中のコードを管理する
+  - developからfeatureを切ることで開発を行う
+
+#### feature
+  - developから分岐する
+  - 機能実装やバグ修正などの開発作業を行う
+  - 完了後はdevelopにマージする
+
+#### hotfix
+  - masterから分岐する
+  - 本番管渠の緊急のバグ修正などに利用する
+  - 開発ブランチを経由しない
+  - 修正後はmasterとdevelopそれぞれにマージされる
+
+#### release
+  - developブランチから分岐する
+  - これからリリースする変更を管理する
+  - リリース後はmasterとdevelopにマージされる
+
+---
 ## メリット/デメリット
 
+### メリット
+
+- GitHub Flow
+  - シンプルな構成なため、理解が容易で共有しやすい
+  - 小さな変更を高頻度でリリースする開発スタイルに向いている
+
+- GItflow
+  - 本番/検証/開発それぞれの状態がブランチごとに区別され環境差分が明確
+  - ブランチごとに役割が明確のため、状態が把握しやすい
+  - 複数の機能開発やバグフィックスを並行して進めやすい
+  - リリースのバージョンが明確になる
+
+### デメリット
+
+- GitHub Flow
+  - バージョンごとにまとめたリリースが難しい
+  - 本番/検証/開発環境などの複数環境の場合にブランチと紐付けにくい
+
+- Gitflow
+  - ブランチの種類が多いため、必要以上にブランチ分割され把握しにくい場合がある
+  - PRを必須にするかなど、細かいルールを開発チームで決める必要がある
+
+
+#### 参考
+- [Git-flow　GitHub-flow GitLab-flowという開発フローについてまとめる](https://qiita.com/pandama09396862/items/9f013fa7b60f4d12d1d8)
