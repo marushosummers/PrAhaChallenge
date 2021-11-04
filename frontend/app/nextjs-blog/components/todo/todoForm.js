@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useInput from './hooks/useInput';
 
 export default function TodoForm({addData}) {
-	const [task, setTask] = useState('')
-	const handleTask = (event) => {
-		setTask(event.target.value)
-	}
+	const [input, handleChange, resetInput] = useInput("")
+
 	const onSubmit = (event) => {
     event.preventDefault();
-		if (!task) return;
-		addData(task)
-		setTask('')
+		if (!input) return;
+		addData(input)
+		resetInput();
 	}
 	return (
 		<div className="commentForm vert-offset-top-2">
@@ -22,13 +21,9 @@ export default function TodoForm({addData}) {
 							< input type = "text"
 							id = "task"
 							className = "form-control"
-							value = {
-								task
-							}
+							value = {input}
 							placeholder = "What do you need to do?"
-							onChange = {
-								handleTask
-							}
+							onChange = {handleChange}
 							/>
 						</div>
 					</div>
