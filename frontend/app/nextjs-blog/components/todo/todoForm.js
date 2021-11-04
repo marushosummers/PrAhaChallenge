@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TodoForm({onAdd}) {
+export default function TodoForm({addData}) {
 	const [task, setTask] = useState('')
 	const handleTask = (event) => {
 		setTask(event.target.value)
@@ -8,7 +8,7 @@ export default function TodoForm({onAdd}) {
 	const onSubmit = (event) => {
     event.preventDefault();
 		if (!task) return;
-		onAdd(task)
+		addData(task)
 		setTask('')
 	}
 	return (

@@ -1,67 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TodoList from './todoList';
 import TodoForm from './todoForm';
+import useData from './hooks/useData';
 
 export default function TodoBox() {
 	const initialData = [{
-				"id": "00001",
-				"task": "Wake up",
-				"complete": false
-			},
-			{
-				"id": "00002",
-				"task": "Eat breakfast",
-				"complete": false
-			},
-			{
-				"id": "00003",
-				"task": "Go to work",
-				"complete": false
-			}
-		]
+			"id": "00001",
+			"task": "Wake up",
+			"complete": false
+		},
+		{
+			"id": "00002",
+			"task": "Eat breakfast",
+			"complete": false
+		},
+		{
+			"id": "00003",
+			"task": "Go to work",
+			"complete": false
+		}
+	]
 
-	const [data, useData] = useState(initialData)
-
-	const generateId = () =>  {
-		return Math.floor(Math.random()*90000) + 10000;
-	}
-
-	const handleNodeRemoval = (nodeId) => {
-		var data = this.state.data;
-		data = data.filter(function (el) {
-			return el.id !== nodeId;
-		});
-		this.setState({data});
-		return;
-	}
-
-	const addData = (id, task, complete) => {
-		useData(data.concat([{
-			id,
-			task,
-			complete
-		}])
-		)
-	}
-
-	const removeData = (id) => {
-		useData(data.filter(todo => todo.id !== id))
-	}
-
-	const toggleComplete = (id) => {
-		useData(data.map(todo => {
-			if (todo.id === id) {
-				todo.complete = !todo.complete
-			}
-			return todo;
-		}))
-	}
-
-	const onAdd = (task) => {
-		const id = generateId().toString();
-		const complete = false;
-		addData(id, task, complete)
-	}
+	const [data, addData, removeData, toggleComplete] = useData(initialData);
 
   return (
     <div className="well">
@@ -76,7 +36,7 @@ export default function TodoBox() {
 				toggleComplete
 			}
 			/>
-      <TodoForm onAdd={onAdd} />
+      <TodoForm addData={addData} />
     </div>
   );
 };
