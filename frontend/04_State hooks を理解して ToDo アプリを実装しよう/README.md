@@ -49,8 +49,6 @@ https://codepen.io/philmayfield/full/MwRgyN
 - react-redux.connect()などの HOC を使って生成される。
 - 主な使用例：UserPage, FollowersSidebar, StoryContainer, FollowedUserList
 
-
-> 引用: [Presentational ComponentとContainer Component](https://www.yuuniworks.com/blog/2018-05-18-presentational-component%E3%81%A8container-component/) 
 ### メリット
 
 - アプリケーション部分と UI 部分を分離できる

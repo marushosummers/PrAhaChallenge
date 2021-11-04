@@ -1,28 +1,35 @@
-import React from 'react';
-import ReactDOM from "react-dom";
-import createReactClass from "create-react-class";
+import React, { useState } from 'react';
 
-export default function TodoForm() {
-	const doSubmit = (e) => {
-		e.preventDefault();
-		var task = ReactDOM.findDOMNode(this.refs.task).value.trim();
-		if (!task) {
-			return;
-		}
-		this.props.onTaskSubmit(task);
-		ReactDOM.findDOMNode(this.refs.task).value = '';
-		return;
+export default function TodoForm({onAdd}) {
+	const [task, setTask] = useState('')
+	const handleTask = (event) => {
+		setTask(event.target.value)
 	}
-
+	const onSubmit = (event) => {
+    event.preventDefault();
+		if (!task) return;
+		onAdd(task)
+		setTask('')
+	}
 	return (
 		<div className="commentForm vert-offset-top-2">
 			<hr />
 			<div className="clearfix">
-				<form className="todoForm form-horizontal" onSubmit={doSubmit}>
+				<form className="todoForm form-horizontal" onSubmit={onSubmit}>
 					<div className="form-group">
 						<label htmlFor="task" className="col-md-2 control-label">Task</label>
 						<div className="col-md-10">
-							<input type="text" id="task" ref="task" className="form-control" placeholder="What do you need to do?" />
+							< input type = "text"
+							id = "task"
+							className = "form-control"
+							value = {
+								task
+							}
+							placeholder = "What do you need to do?"
+							onChange = {
+								handleTask
+							}
+							/>
 						</div>
 					</div>
 					<div className="row">

@@ -1,19 +1,33 @@
 import React from 'react';
+import TodoItem from './todoItem';
 
-export default function TodoList() {
-	const removeNode = (nodeId) => {
-		this.props.removeNode(nodeId);
-		return;
-	}
+export default function TodoList({
+	data,
+	removeData,
+	toggleComplete
+	}) {
 
-	const toggleComplete = (nodeId) => {
-		this.props.toggleComplete(nodeId);
-		return;
-	}
-
-	const listNodes = this.props.data.map(function (listItem) {
+	const listNodes = data.map((listItem) => {
 		return (
-			<TodoItem key={listItem.id} nodeId={listItem.id} task={listItem.task} complete={listItem.complete} removeNode={this.removeNode} toggleComplete={this.toggleComplete} />
+			< TodoItem key = {
+				listItem.id
+			}
+			id = {
+				listItem.id
+			}
+			task = {
+				listItem.task
+			}
+			complete = {
+				listItem.complete
+			}
+			removeData = {
+				removeData
+			}
+			toggleComplete = {
+				toggleComplete
+			}
+			/>
 		);
 	},this);
 

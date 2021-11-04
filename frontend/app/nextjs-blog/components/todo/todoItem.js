@@ -1,32 +1,30 @@
 import React from 'react';
 
-
-export default function TodoItem() {
-	const classes = 'list-group-item clearfix';
-	if (this.props.complete === 'true') {
+export default function TodoItem({
+	id,
+	task,
+	complete,
+	removeData,
+	toggleComplete
+}) {
+	let classes = 'list-group-item clearfix';
+	if (complete) {
 		classes = classes + ' list-group-item-success';
 	}
 
-	const removeNode = (e) => {
-		e.preventDefault();
-		this.props.removeNode(this.props.nodeId);
-		return;
+	const handleComplete = (event) => {
+		toggleComplete(id)
 	}
 
-	const toggleComplete = (e) => {
-		e.preventDefault();
-		this.props.toggleComplete(this.props.nodeId);
-		return;
-	}
-
-	const updateClass = () => {
-	}
-
+		const handleRemove = (event) => {
+			removeData(id)
+		}
 	return (
-		<li className={classes}>
-			{this.props.task}
+		<li key={id} className={classes}>
+			{task}
 			<div className="pull-right" role="group">
-				<button type="button" className="btn btn-xs btn-success img-circle" onClick={this.toggleComplete}>&#x2713;</button> <button type="button" className="btn btn-xs btn-danger img-circle" onClick={this.removeNode}>&#xff38;</button>
+				<button type="button" className="btn btn-xs btn-success img-circle" onClick={handleComplete}>&#x2713;</button> 
+				<button type="button" className="btn btn-xs btn-danger img-circle" onClick={handleRemove}>&#xff38;</button>
 			</div>
 		</li>
 	);
