@@ -56,7 +56,8 @@
 ### 課題2（実装）
 
 - GitHubのPRやIssueにテンプレートを作成する
-
+  - [PullRequest](https://github.com/marushosummers/PrAhaChallenge/blob/techniques-of-team-development/.github/PULL_REQUEST_TEMPLATE.md)
+  - [Issue](https://github.com/marushosummers/PrAhaChallenge/blob/techniques-of-team-development/.github/ISSUE_TEMPLATE/bug_report.md)
 
 ### 課題3
 
