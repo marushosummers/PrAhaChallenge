@@ -84,3 +84,36 @@ export const FetchComponent = () => {
 ### 課題4
 
 useEffectに関するクイズを作成してください
+
+1. 以下のように、`useEffect`の引数に非同期関数を指定するとエラーになります。どのようにすれば解決できますか？
+
+```js
+useEffect(async () => {
+  const response = await fetch(`https://api.exsample/`);
+  console.log(response);
+}, []);
+```
+
+2. 無限ループが発生した際に、`useRef`を使うと回避されるのはなぜですか。
+
+3. `useEffect`の処理とDOMの更新は非同期に行われるため、処理が完了する前のDOMが表示される可能性があります。これを回避するにはどうすればよいか。
+
+
+<details>
+  <summary>回答例</summary>
+
+1. 内部で非同期関数を定義し、実行する。直接引数にすると、Promise型の戻り値がcleanup関数として解釈されるため。
+```js
+useEffect(() => {
+  async function fetchApi() {
+    const response = await fetch(
+      `https://api.exsample/`
+    );
+    console.log(response);
+  }
+  fetchApi();
+}, []);
+```
+
+2. [`useRef`](https://ja.reactjs.org/docs/hooks-reference.html#useref)は`useRef.current`の値が変化しても変更を通知せず、再レンダリングしないため。
+3. [useLayoutEffect](https://ja.reactjs.org/docs/hooks-reference.html#uselayouteffect)を用いる
