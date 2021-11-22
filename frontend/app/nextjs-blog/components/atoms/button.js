@@ -1,37 +1,39 @@
 import PropTypes from 'prop-types';
 
-const Button = ({
+const Button = function ({
   color,
   size,
   disabled,
   onClick,
   children,
-}) => {
-
-  let height = "h-8"
+}) {
+  let height = 'h-8';
   switch (size) {
     case 'small':
-      height = "h-8"
+      height = 'h-8';
       break;
     case 'medium':
-      height = "h-10"
+      height = 'h-10';
       break;
     case 'large':
-      height = "h-12"
+      height = 'h-12';
       break;
   }
 
   return (
-  <button className = {
+    <button
+      className={
     `disabled:bg-gray-300 bg-${color}-600 min-w-min ${height} text-white font-bold px-2 py-1 rounded text-center`
-  } disabled={disabled} onClick={onClick}
-  >
-    {children}
-  </button>
-  )
-}
+  }
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;
 
 Button.propTypes = {
   color: PropTypes.oneOf(['red', 'blue', 'green']),
@@ -40,4 +42,3 @@ Button.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.string,
 };
-
