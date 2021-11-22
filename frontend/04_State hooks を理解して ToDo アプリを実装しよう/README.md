@@ -60,6 +60,44 @@ https://codepen.io/philmayfield/full/MwRgyN
 
 ### リファクタリング
 
+以下のように、Container Component と Presentational Component を分離している。
+
+- `app/nextjs-blog/components`配下は`Presentational Component`のみ
+- `app/nextjs-blog/pages/index.js`は`Container Component`
+
 ## 課題4
 
 useStateに関するクイズ
+
+
+1. `useState`はクラスコンポーネントの `setState` メソッドとは異なり自動的な更新オブジェクトのマージを行いません。どうすればよいか。
+
+2. stateの初期値が重い処理によって算出される場合、レンダリングが遅くなる可能性があります。どう回避すればよいか。
+
+3. TypeScriptでStateの型を指定するときはどのように書けばよいか。
+
+
+<details>
+  <summary>回答例</summary>
+
+1. 更新形式をスプレッド構文と併用することで再現可能
+```js
+const [state, setState] = useState({});
+setState(prevState => {
+  // Object.assign would also work
+  return {...prevState, ...updatedValues};
+});
+```
+
+2. 初期Stateとして、関数を渡すことで遅延初期化できる。
+```js
+const [state, setState] = useState(() => {
+  const initialState = someExpensiveComputation(props);
+  return initialState;
+});
+```
+
+3. 
+```js
+const [data, setData] = useState<Number>(10);
+```
