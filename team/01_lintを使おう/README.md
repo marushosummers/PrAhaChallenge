@@ -26,4 +26,40 @@
 
 ### lintエラーがある場合はcommitを禁止するようなpre-commit hook
 
+使用するライブラリ
+- `husky`: 発生したgit hookに対して起こすアクションを設定するライブラリ
+- `lint-staged`: ステージに上がっているファイルを対象にeslint等のコマンドを実行するライブラリ
+
+#### 導入
+```
+yarn add -D eslint lint-staged husky
+```
+
+#### `package.json`に設定
+
+```json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "dist/**/*"
+    ]
+  }
+}
+```
+
+参考: [【JavaScript】コミットする前にlint-stagedでeslintのチェックをする](https://kic-yuuki.hatenablog.com/entry/2019/05/27/090515)
 ### pre-commit hookの問題点
+
+- `git commit --no-verify`でpre-commitを実行せずコミットできる抜け道がある
+- ブラウザ上での変更にはpre-commit hookが動作しない?
