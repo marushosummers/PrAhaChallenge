@@ -1,11 +1,9 @@
+import React from 'react';
 import '../styles/globals.css';
 import '../styles/todo.css';
 import Head from 'next/head';
 
-export default function App({
-  Component,
-  pageProps,
-}) {
+const App = function ({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -27,4 +25,6 @@ export default function App({
       />
     </>
   );
-}
+};
+
+export default App;

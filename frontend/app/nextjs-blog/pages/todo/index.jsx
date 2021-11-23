@@ -1,6 +1,7 @@
+import React from 'react';
 import TodoBox from '../../components/todo/todo';
 
-export default function Home() {
+const Home = function () {
   return (
     <section className="container vert-offset-top-2">
       <div className="todoBox col-xs-6 col-xs-offset-3">
@@ -8,4 +9,6 @@ export default function Home() {
       </div>
     </section>
   );
-}
+};
+
+export default Home;
