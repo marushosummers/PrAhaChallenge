@@ -12,6 +12,16 @@
 参考: [独学エンジニアほどlintを使うべきだ！ESLintとJavaScriptで解説するlintの必要性 - Qiita](https://qiita.com/dowanna6/items/98d4016e51b04617b26d)
 ### ESLintが定義するルール
 
+[List of available rules - ESLint - Pluggable JavaScript linter](https://eslint.org/docs/rules/)
+
+### 重要だと思うルール
+
+- [no-unused-vars - Rules - ESLint - Pluggable JavaScript linter](https://eslint.org/docs/rules/no-unused-vars): 使っていない変数を検出する
+- [quotes - Rules - ESLint - Pluggable JavaScript linter](https://eslint.org/docs/rules/quotes): ダブルクォートとシングルクォートを統一する
+- [no-extra-semi - Rules - ESLint - Pluggable JavaScript linter](https://eslint.org/docs/rules/no-extra-semi): セミコロンの修正
+- [no-redeclare - Rules - ESLint - Pluggable JavaScript linter](https://eslint.org/docs/rules/no-redeclare): 変数の再宣言を検出する
+- [no-console - Rules - ESLint - Pluggable JavaScript linter](https://eslint.org/docs/rules/no-console): console.logを検出する
+
 ### AirbnbのJavaScript Style
 - [airbnb/javascript: JavaScript Style Guide](https://github.com/airbnb/javascript)
 #### インストール参考
