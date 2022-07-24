@@ -1,6 +1,6 @@
 import TemplateTop from "../templates/top";
 
-import "tailwindcss/tailwind.css";
+
 
 const dummyPosts = [
 	{

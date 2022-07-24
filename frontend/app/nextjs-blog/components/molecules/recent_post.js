@@ -1,6 +1,7 @@
 import CategoryTag from "../atoms/category_tag";
 import Avatar from "../atoms/avatar";
 import AuthorName from "../atoms/author_name";
+import Button from "../atoms/button";
 
 export default function RecentPost(props) {
 	return (

@@ -5,6 +5,7 @@ services:
     build: .
     ports:
       - "3000:3000"
+      - "6006:6006"
     tty: true
     stdin_open: true
     volumes:
