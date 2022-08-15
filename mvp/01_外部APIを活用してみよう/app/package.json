@@ -1,0 +1,18 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "followers": "ts-node --require dotenv/config ./fetchFollowers.ts",
+    "users": "ts-node --require dotenv/config ./fetchUsers.ts"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.7",
+    "commander": "^8.3.0",
+    "dotenv": "^10.0.0",
+    "ts-node": "^10.4.0",
+    "twitter-api-v2": "^1.6.5",
+    "typescript": "^4.5.2"
+  }
+}
