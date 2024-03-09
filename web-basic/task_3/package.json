@@ -1,16 +1,18 @@
+```json
 {
   "name": "praha_express_api_1",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para o projeto Praha Express",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/marushosummers/praha_express_api_1.git"
   },
-  "author": "",
+  "author": "Seu Nome",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/marushosummers/praha_express_api_1/issues"
@@ -21,3 +23,7 @@
     "express": "^4.17.1"
   }
 }
+
+Isso deve exibir corretamente o código JSON no preview do GitHub.
+
+
